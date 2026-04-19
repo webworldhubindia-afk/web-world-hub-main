@@ -22,6 +22,7 @@ export default function Header() {
   const navItems = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
+    { name: 'Team', path: '/team' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Blog', path: '/blog' },
     { name: 'Contact', path: '/contact' },
@@ -30,13 +31,13 @@ export default function Header() {
   return (
     <header
       className={cn(
-        'fixed top-0 z-40 w-full transition-all duration-300',
+        'fixed top-11 z-40 w-full transition-all duration-300',
         scrolled
           ? 'glass-card py-3 translate-y-0'
           : 'bg-transparent py-6'
       )}
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
         <nav className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-2 group">
             <motion.div
@@ -59,6 +60,7 @@ export default function Header() {
           <div className="hidden lg:flex lg:items-center lg:gap-8">
             <NavLink to="/" className="nav-link">Home</NavLink>
             <NavLink to="/about" className="nav-link">About</NavLink>
+            <NavLink to="/team" className="nav-link">Team</NavLink>
             
             <div 
               className="relative"

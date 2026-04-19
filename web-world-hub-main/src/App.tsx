@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import TopBar from './components/TopBar';
+import FloatingContact from './components/FloatingContact';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -14,6 +16,7 @@ import ServiceDetail from './pages/ServiceDetail';
 import Portfolio from './pages/Portfolio';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import Team from './pages/Team';
 import LoadingScreen from './components/LoadingScreen';
 import { AnimatePresence } from 'motion/react';
 
@@ -42,12 +45,14 @@ export default function App() {
     <Router>
       <ScrollToTop />
       <div className="flex min-h-screen flex-col">
+        <TopBar />
         <Header />
-        <main className="flex-grow">
+        <main className="flex-grow pt-20">
           <AnimatePresence mode="wait">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/team" element={<Team />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/:id" element={<ServiceDetail />} />
               <Route path="/portfolio" element={<Portfolio />} />
@@ -57,6 +62,7 @@ export default function App() {
           </AnimatePresence>
         </main>
         <Footer />
+        <FloatingContact />
       </div>
     </Router>
   );

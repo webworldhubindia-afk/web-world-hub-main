@@ -4,9 +4,10 @@ import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const BANNERS = [
-  'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80',
-  'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80'
+  'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=1920',
+  'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1920',
+  'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=1920',
+  'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1920'
 ];
 
 export default function Hero() {
@@ -20,7 +21,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-screen min-h-[700px] w-full overflow-hidden">
+    <section className="relative h-screen min-h-[700px] w-full overflow-hidden pt-20">
       {/* Background Slideshow */}
       {BANNERS.map((banner, index) => (
         <motion.div
@@ -48,14 +49,15 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
           >
             <h4 className="mb-4 font-display text-sm font-bold tracking-[0.3em] text-brand-primary uppercase">
-              Award Winning Digital Agency
+              
             </h4>
+
             <h1 className="mb-8 font-display text-5xl font-bold leading-tight text-white md:text-7xl lg:text-8xl">
-              Building the Future <br />
-              <span className="gradient-text">Through Technology.</span>
+              Building the Future 
+              <span className="gradient-text">Through Innovation.</span>
             </h1>
-            <p className="mb-10 text-lg text-slate-300 md:text-xl">
-              We create cutting-edge digital products that help brands grow and succeed in the digital-first world.
+            <p className="mb-10 text-lg text-slate-300 md:text-xl max-w-2xl">
+              We create cutting-edge digital products, stunning websites, and powerful mobile apps that help brands grow and succeed in the digital-first world.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link

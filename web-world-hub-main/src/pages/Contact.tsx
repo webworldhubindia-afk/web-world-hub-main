@@ -3,6 +3,8 @@ import SectionHeader from '../components/SectionHeader';
 import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 
 export default function Contact() {
+  const mapUrl = "https://www.google.com/maps?q=House+No.4/1089+HAMDARD+NAGAR+B+NEAR+CHAD+MASJID+JAMALPUR+KOIL+ALIGARH+UTTAR+PRADESH+202001&output=embed";
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -10,10 +12,10 @@ export default function Contact() {
       exit={{ opacity: 0 }}
       className="pb-24 pt-32"
     >
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
         <SectionHeader
           subtitle="Get in Touch"
-          title="Contact Nexus Digital"
+          title="Contact Web World Hub"
           description="Have a project in mind? Let's build something amazing together."
         />
 
@@ -33,7 +35,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-bold opacity-70">Email Us</p>
-                    <p className="text-xl font-bold">hello@nexusdigital.com</p>
+                    <p className="text-xl font-bold">info@webworldhub.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -42,7 +44,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-bold opacity-70">Call Us</p>
-                    <p className="text-xl font-bold">+1 (555) 000-1234</p>
+                    <p className="text-xl font-bold">+91 8285927937</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -51,7 +53,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm font-bold opacity-70">Our Office</p>
-                    <p className="text-xl font-bold">Digital Plaza, 12th Floor, Silicon Valley, CA</p>
+                    <p className="text-lg font-bold">House No.4/1089 HAMDARD NAGAR B, NEAR CHAD MASJID, JAMALPUR KOIL, ALIGARH, UTTAR PRADESH - 202001</p>
                   </div>
                 </div>
               </div>
@@ -121,6 +123,61 @@ export default function Contact() {
             </form>
           </motion.div>
         </div>
+
+        {/* Google Map Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-24"
+        >
+          <SectionHeader
+            subtitle="Find Us"
+            title="Our Location"
+            description="Visit our office or get directions using the map below."
+          />
+          
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl glass-card p-4">
+            <div className="relative w-full h-[500px] rounded-2xl overflow-hidden">
+              <iframe
+                src={mapUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Web World Hub Location"
+                className="absolute inset-0"
+              />
+            </div>
+            
+            {/* Location Info Card */}
+            <div className="mt-6 p-6 bg-brand-primary/5 dark:bg-brand-primary/10 rounded-2xl">
+              <div className="flex items-start gap-4">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-primary text-white">
+                  <MapPin className="h-6 w-6" />
+                </div>
+                <div>
+                  <h4 className="font-display text-lg font-bold mb-2">Web World Hub</h4>
+                  <p className="text-slate-600 dark:text-slate-400">
+                    House No.4/1089 HAMDARD NAGAR B, NEAR CHAD MASJID,<br />
+                    JAMALPUR KOIL, ALIGARH, UTTAR PRADESH - 202001
+                  </p>
+                  <a
+                    href="https://www.google.com/maps?q=House+No.4/1089+HAMDARD+NAGAR+B+NEAR+CHAD+MASJID+JAMALPUR+KOIL+ALIGARH+UTTAR+PRADESH+202001"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-brand-primary hover:underline"
+                  >
+                    Get Directions <MapPin className="h-4 w-4" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </motion.div>
   );

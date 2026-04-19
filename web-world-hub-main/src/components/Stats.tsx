@@ -35,10 +35,10 @@ function Counter({ value, suffix = '' }: { value: number; suffix?: string }) {
 
 export default function Stats() {
   const stats = [
-    { label: 'Successful Projects', value: 250, suffix: '+' },
-    { label: 'Happy Clients', value: 150, suffix: '+' },
-    { label: 'IT Specialists', value: 45, suffix: '' },
-    { label: 'Awards Won', value: 12, suffix: '' },
+    { label: 'Successful Projects', value: 500, suffix: '+' },
+    { label: 'Happy Clients', value: 350, suffix: '+' },
+    { label: 'IT Specialists', value: 85, suffix: '' },
+    { label: 'Awards Won', value: 25, suffix: '' },
   ];
 
   return (

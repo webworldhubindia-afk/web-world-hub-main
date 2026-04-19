@@ -1,14 +1,62 @@
 import { Link } from 'react-router-dom';
-import { Linkedin, Youtube, Facebook, Instagram, Send, Mail, Phone, MapPin } from 'lucide-react';
+import { Linkedin, Youtube, Facebook, Instagram, Send, Mail, Phone, MapPin, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
+import { ALL_SERVICES } from '../servicesData';
 
 export default function Footer() {
+  const [showAllServices, setShowAllServices] = useState(false);
+  const featuredServices = ALL_SERVICES.slice(0, 8);
+
   return (
     <footer className="bg-slate-50 pt-20 transition-colors dark:bg-slate-950">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-8 lg:px-12 max-w-7xl">
+        {/* Services Section */}
+        <div className="mb-16 pb-16 border-b border-slate-200 dark:border-slate-800">
+          <h3 className="mb-8 font-display text-2xl font-bold text-center">Our Services</h3>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {featuredServices.map((category) => (
+              <div key={category.id} className="space-y-2">
+                <h4 className="font-bold text-sm text-brand-primary">{category.title}</h4>
+                <ul className="space-y-1">
+                  {category.services.slice(0, 4).map((service, idx) => (
+                    <li key={idx} className="text-xs text-slate-600 dark:text-slate-400 hover:text-brand-primary cursor-pointer transition-colors">
+                      {service}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          
+          {showAllServices && (
+            <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+              {ALL_SERVICES.slice(8).map((category) => (
+                <div key={category.id} className="space-y-2">
+                  <h4 className="font-bold text-sm text-brand-primary">{category.title}</h4>
+                  <ul className="space-y-1">
+                    {category.services.slice(0, 4).map((service, idx) => (
+                      <li key={idx} className="text-xs text-slate-600 dark:text-slate-400 hover:text-brand-primary cursor-pointer transition-colors">
+                        {service}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          )}
+          
+          <button
+            onClick={() => setShowAllServices(!showAllServices)}
+            className="mt-6 mx-auto flex items-center gap-2 text-sm font-bold text-brand-primary hover:underline"
+          >
+            {showAllServices ? 'Show Less' : 'View All 191+ Services'}
+            <ChevronDown className={`h-4 w-4 transition-transform ${showAllServices ? 'rotate-180' : ''}`} />
+          </button>
+        </div>
         <div className="grid gap-12 lg:grid-cols-4">
           <div className="space-y-6">
             <Link to="/" className="flex items-center gap-2">
-              <span className="font-display text-2xl font-bold tracking-tighter">NEXUS</span>
+              <span className="font-display text-2xl font-bold tracking-tighter">WEB WORLD HUB</span>
             </Link>
             <p className="text-slate-600 dark:text-slate-400">
               Empowering businesses with cutting-edge digital solutions and innovative strategies.
@@ -34,9 +82,11 @@ export default function Footer() {
             <ul className="space-y-4 text-slate-600 dark:text-slate-400">
               <li><Link to="/" className="hover:text-brand-primary">Home</Link></li>
               <li><Link to="/about" className="hover:text-brand-primary">About Us</Link></li>
+              <li><Link to="/team" className="hover:text-brand-primary">Our Team</Link></li>
               <li><Link to="/services" className="hover:text-brand-primary">Services</Link></li>
               <li><Link to="/portfolio" className="hover:text-brand-primary">Portfolio</Link></li>
               <li><Link to="/blog" className="hover:text-brand-primary">Blog</Link></li>
+              <li><Link to="/contact" className="hover:text-brand-primary">Contact</Link></li>
             </ul>
           </div>
 

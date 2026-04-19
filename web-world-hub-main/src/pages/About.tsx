@@ -20,7 +20,7 @@ export default function About() {
       <div className="container mx-auto px-6">
         <SectionHeader
           subtitle="Our Story"
-          title="About Nexus Digital"
+          title="About WEB World Hub  "
           description="We are a team of passionate creators, engineers, and strategists dedicated to redefining digital possibilities."
         />
 
